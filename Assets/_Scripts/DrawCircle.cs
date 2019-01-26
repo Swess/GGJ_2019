@@ -27,7 +27,7 @@ public class DrawCircle : MonoBehaviour
         
         _nTriangles = _cm.nTriangles;
         _thetaScale = _cm.thetaScale;
-        _radius     = _cm._radius;
+        _radius     = _cm.radius;
 
         DrawACirclePiePart();
     }
