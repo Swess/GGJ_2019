@@ -23,8 +23,9 @@ public class PickupPile : MonoBehaviour {
         PlayerController controller = other.GetComponent<PlayerController>();
 
         // Check if the player has same item type in hand
-        if ( !prefab.CompareTag(controller.GetCurrentObjectTag()) ) {
-            controller.SetActionVisuals(this, true);
+        string objTag = controller.GetCurrentObjectTag();
+        if ( objTag.Length == 0 || !prefab.CompareTag(objTag) ) {
+            controller.SetPickupVisuals(this, true);
         }
     }
 
@@ -33,7 +34,7 @@ public class PickupPile : MonoBehaviour {
         if ( !other.CompareTag("Player") ) return;
 
         PlayerController controller = other.GetComponent<PlayerController>();
-        controller.SetActionVisuals(this, false);
+        controller.SetPickupVisuals(this, false);
     }
 
 }
