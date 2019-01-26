@@ -224,8 +224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nTriangles: 20
+  correction: 0
   thetaScale: 0.01
-  _radius: 4
+  radius: 3
   prefab: {fileID: 8265042637287192318, guid: 4e1dc6857d40b7545a0b28654d005a5f, type: 3}
 --- !u!4 &1661966913
 Transform:
