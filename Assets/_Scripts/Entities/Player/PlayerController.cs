@@ -82,12 +82,21 @@ namespace Entities.Player {
             // Apply wind ON TOP of movement velocity
             _rb.velocity += windModifier.normalized * windSpeed;
 
+
             // animator.SetBool("Idle", _rb.velocity.magnitude < 0.1f );
+
+
+            // Rotate Object
+            if ( _rb.velocity.magnitude > 0.2f ) {
+                float angle = Mathf.Atan2(_rb.velocity.z, _rb.velocity.x) * Mathf.Rad2Deg * -1 + 90;
+                transform.eulerAngles = new Vector3(0,angle,0);
+            }
+
         }
 
 
         private void CheckForItemPickup() {
-            if ( _pickupZone && PlayerInputs.GetButtonDown(RewiredConsts.Action.Use) ) {
+           if ( _pickupZone && !_currentItem && PlayerInputs.GetButtonDown(RewiredConsts.Action.Use) ) {
 
                 EmptyItemHolder();
                 _currentItem = Instantiate(_pickupZone.prefab, _itemHolder.position, Quaternion.identity, _itemHolder);
