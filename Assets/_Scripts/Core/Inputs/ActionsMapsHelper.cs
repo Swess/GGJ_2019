@@ -9,7 +9,7 @@ namespace Core.Inputs {
     public class ActionsMapsHelper {
 
         public Player Player1Inputs { get; protected set; }
-        public Player Player2Inputs { get; protected set; }
+        // public Player Player2Inputs { get; protected set; }
 
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace Core.Inputs {
         public ActionsMapsHelper() {
             // Set ref once
             Player1Inputs = ReInput.players.GetPlayer(0);
-            Player2Inputs = ReInput.players.GetPlayer(1);
+            // Player2Inputs = ReInput.players.GetPlayer(1);
         }
 
 
