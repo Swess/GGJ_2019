@@ -8,16 +8,19 @@ public class PickupPile : MonoBehaviour {
     public int amount = 3;
     public GameObject prefab;
 
-
-    // Start is called before the first frame update
-    void Start() { }
+    public void UseOne() {
+        // TODO: trigger sound here
+        amount--;
+        if(amount == 0)
+            Destroy(gameObject);
+    }
 
 
     private void OnTriggerEnter(Collider other) {
         if ( !other.CompareTag("Player") ) return;
 
         PlayerController controller = other.GetComponent<PlayerController>();
-        controller.SetActionVisuals(true);
+        controller.SetActionVisuals(this, true);
     }
 
 
@@ -25,7 +28,7 @@ public class PickupPile : MonoBehaviour {
         if ( !other.CompareTag("Player") ) return;
 
         PlayerController controller = other.GetComponent<PlayerController>();
-        controller.SetActionVisuals(false);
+        controller.SetActionVisuals(this, false);
     }
 
 }

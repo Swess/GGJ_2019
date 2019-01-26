@@ -14,11 +14,13 @@ namespace Entities.Player {
         public                float    windSpeed      = 5f;
         [Range(0, 20)] public float    frictionFactor = 4f;
         public                Animator animator;
-
-        public Vector3 windModifier = Vector3.zero;
+        public                Vector3  windModifier = Vector3.zero;
 
         private Rigidbody _rb;
-        // private PlayerItemHolder _holder;
+
+        private PickupPile _pickupZone;
+        private GameObject _currentItem;
+        private Transform _itemHolder;
 
         private Vector3 _previousDirection;
 
@@ -32,16 +34,19 @@ namespace Entities.Player {
 
         protected void Awake() {
             _rb = GetComponent<Rigidbody>();
-            // _holder     = GetComponentInChildren<PlayerItemHolder>();
+            _itemHolder     = transform.Find("ItemHolder");
+
             PlayerInputs = ReInput.players.GetPlayer(player); // Get the MainPlayer's inputs
             // PlayerInputs = GameController.Instance.actionsMapsHelper.Player1Inputs; // Get the MainPlayer's inputs
         }
 
 
-        private void Start() { }
 
 
-        private void Update() { CheckForUseItem(); }
+        private void Update() {
+            CheckForItemPickup();
+            CheckForItemDrop();
+        }
 
 
         private void FixedUpdate() {
@@ -77,14 +82,27 @@ namespace Entities.Player {
             // Apply wind ON TOP of movement velocity
             _rb.velocity += windModifier.normalized * windSpeed;
 
-
             // animator.SetBool("Idle", _rb.velocity.magnitude < 0.1f );
         }
 
 
-        private void CheckForUseItem() {
-            if ( PlayerInputs.GetButtonDown("UseItem") ) {
-                // _holder.UseItem(GetDirection());
+        private void CheckForItemPickup() {
+            if ( _pickupZone && PlayerInputs.GetButtonDown(RewiredConsts.Action.Use) ) {
+
+                EmptyItemHolder();
+                _currentItem = Instantiate(_pickupZone.prefab, _itemHolder.position, Quaternion.identity, _itemHolder);
+
+                _pickupZone.UseOne();
+            }
+        }
+
+
+        private void CheckForItemDrop() {
+            if ( _currentItem && PlayerInputs.GetButtonDown(RewiredConsts.Action.Drop)) {
+                // TODO : Check if in drop zone
+
+                EmptyItemHolder();
+                _currentItem = null;
             }
         }
 
@@ -95,7 +113,8 @@ namespace Entities.Player {
         /// <summary>
         /// Display Character visual queue for pickup actions
         /// </summary>
-        public void SetActionVisuals(bool state) {
+        public void SetActionVisuals(PickupPile pp, bool state) {
+            _pickupZone = state ? pp : null;
             transform.Find("Canvas").gameObject.SetActive(state);
         }
 
@@ -107,6 +126,13 @@ namespace Entities.Player {
             while ( counter < fxTime ) {
                 counter += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
+            }
+        }
+
+
+        private void EmptyItemHolder() {
+            for ( int i = 0; i < _itemHolder.childCount; i++ ) {
+                Destroy(_itemHolder.GetChild(i).gameObject);
             }
         }
 
