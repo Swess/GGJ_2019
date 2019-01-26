@@ -20,11 +20,11 @@ public class CircleManager : MonoBehaviour
     }
 
 
-    // private void Update() { return getAngle(); }
+    private void Update() { return getAngle(); }
 
 
     private float getAngle() {
-        // if ( _player1Input == null ) return;
+        if ( _player1Input == null ) return;
 
         float   horizontal = _player1Input.GetAxisRaw(RewiredConsts.Action.Horizontal);
         float   vertical   = _player1Input.GetAxisRaw(RewiredConsts.Action.Vertical);
