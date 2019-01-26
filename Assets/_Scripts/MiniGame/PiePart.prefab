@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a49140e21b3fa44a3b437302d75032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetaScale: 0.01
-  radius: 3
 --- !u!120 &8265042637287192316
 LineRenderer:
   m_ObjectHideFlags: 0
