@@ -11,8 +11,9 @@ public class PickupPile : MonoBehaviour {
     public void UseOne() {
         // TODO: trigger sound here
         amount--;
-        if(amount == 0)
+        if ( amount == 0 )
             Destroy(gameObject);
+
     }
 
 
@@ -20,7 +21,11 @@ public class PickupPile : MonoBehaviour {
         if ( !other.CompareTag("Player") ) return;
 
         PlayerController controller = other.GetComponent<PlayerController>();
-        controller.SetActionVisuals(this, true);
+
+        // Check if the player has same item type in hand
+        if ( !prefab.CompareTag(controller.GetCurrentObjectTag()) ) {
+            controller.SetActionVisuals(this, true);
+        }
     }
 
 

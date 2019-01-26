@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Snow_Item
+  - Food_Item
+  - Wood_Item
   layers:
   - Default
   - TransparentFX

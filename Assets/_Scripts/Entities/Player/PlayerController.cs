@@ -60,6 +60,11 @@ namespace Entities.Player {
         // ========================================================
 
 
+        public string GetCurrentObjectTag() {
+            return !_currentItem ? "" : _currentItem.tag;
+        }
+
+
         /// <summary>
         /// Gradually slowDown player
         /// </summary>
@@ -96,13 +101,15 @@ namespace Entities.Player {
 
 
         private void CheckForItemPickup() {
-           if ( _pickupZone && !_currentItem && PlayerInputs.GetButtonDown(RewiredConsts.Action.Use) ) {
+           if ( _pickupZone && PlayerInputs.GetButtonDown(RewiredConsts.Action.Use) ) {
 
                 EmptyItemHolder();
                 _currentItem = Instantiate(_pickupZone.prefab, _itemHolder.position, Quaternion.identity, _itemHolder);
 
                 _pickupZone.UseOne();
-            }
+                SetActionVisuals(_pickupZone, false);
+                _pickupZone = null;
+           }
         }
 
 
