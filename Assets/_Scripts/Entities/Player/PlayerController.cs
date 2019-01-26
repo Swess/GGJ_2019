@@ -10,7 +10,6 @@ namespace Entities.Player {
         [PlayerIdProperty(typeof(RewiredConsts.Player))]
         public int player;
 
-        public                float accelerationSpeed = 10f;
         public                float maxVelocity = 10f;
         public float windSpeed = 5f;
         [Range(0, 20)] public float frictionFactor    = 4f;
@@ -33,8 +32,8 @@ namespace Entities.Player {
         protected void Awake() {
             _rb         = GetComponent<Rigidbody>();
             // _holder     = GetComponentInChildren<PlayerItemHolder>();
-
-            PlayerInputs = GameController.Instance.actionsMapsHelper.Player1Inputs; // Get the MainPlayer's inputs
+            PlayerInputs = ReInput.players.GetPlayer(player); // Get the MainPlayer's inputs
+            // PlayerInputs = GameController.Instance.actionsMapsHelper.Player1Inputs; // Get the MainPlayer's inputs
         }
 
 
@@ -81,7 +80,7 @@ namespace Entities.Player {
             _rb.velocity += windModifier.normalized * windSpeed;
 
 
-            animator.SetBool("Idle", _rb.velocity.magnitude < 0.1f );
+            // animator.SetBool("Idle", _rb.velocity.magnitude < 0.1f );
         }
 
 
