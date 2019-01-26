@@ -10,12 +10,13 @@ namespace Entities.Player {
         [PlayerIdProperty(typeof(RewiredConsts.Player))]
         public int player;
 
-        public                float maxVelocity = 10f;
-        public float windSpeed = 5f;
-        [Range(0, 20)] public float frictionFactor    = 4f;
-        public Animator         animator;
+        public                float    maxVelocity    = 10f;
+        public                float    windSpeed      = 5f;
+        [Range(0, 20)] public float    frictionFactor = 4f;
+        public                Animator animator;
 
         public Vector3 windModifier = Vector3.zero;
+
         private Rigidbody _rb;
         // private PlayerItemHolder _holder;
 
@@ -30,16 +31,14 @@ namespace Entities.Player {
 
 
         protected void Awake() {
-            _rb         = GetComponent<Rigidbody>();
+            _rb = GetComponent<Rigidbody>();
             // _holder     = GetComponentInChildren<PlayerItemHolder>();
             PlayerInputs = ReInput.players.GetPlayer(player); // Get the MainPlayer's inputs
             // PlayerInputs = GameController.Instance.actionsMapsHelper.Player1Inputs; // Get the MainPlayer's inputs
         }
 
 
-        private void Start() {
-
-        }
+        private void Start() { }
 
 
         private void Update() { CheckForUseItem(); }
@@ -73,8 +72,7 @@ namespace Entities.Player {
             _rb.velocity = forceAxis.normalized * maxVelocity;
 
             // Change Rotation
-            if ( forceAxis.magnitude > 0 )
-                _previousDirection = forceAxis.normalized;
+            if ( forceAxis.magnitude > 0 ) _previousDirection = forceAxis.normalized;
 
             // Apply wind ON TOP of movement velocity
             _rb.velocity += windModifier.normalized * windSpeed;
@@ -91,13 +89,20 @@ namespace Entities.Player {
         }
 
 
-
         public Vector3 GetDirection() { return _rb.velocity.normalized; }
+
+
+        /// <summary>
+        /// Display Character visual queue for pickup actions
+        /// </summary>
+        public void SetActionVisuals(bool state) {
+            transform.Find("Canvas").gameObject.SetActive(state);
+        }
 
 
         IEnumerator DestroyPPVolume() {
             float counter = 0f;
-            float fxTime = 0.4f;
+            float fxTime  = 0.4f;
 
             while ( counter < fxTime ) {
                 counter += Time.deltaTime;
