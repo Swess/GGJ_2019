@@ -31,7 +31,7 @@ namespace Core {
 
         public GameObject Player1 {
             get {
-                if ( _player1 == null ) _player1 = GameObject.Find("Player1");
+                if ( _player1 == null ) _player1 = GameObject.Find("Player");
                 return _player1;
             }
         }
