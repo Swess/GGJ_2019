@@ -50,6 +50,7 @@ public class Requester : MonoBehaviour {
         if ( Camera.main == null ) return;
 
         Vector3 screenPos       = Camera.main.WorldToScreenPoint(transform.position);
+        screenPos = WorldToScreenPointProjected(Camera.main, transform.position);
         Vector3 playerScreenPos = Camera.main.WorldToScreenPoint(GameController.Instance.Player1.transform.position);
 
         Vector3 direction = playerScreenPos - screenPos;
@@ -58,6 +59,8 @@ public class Requester : MonoBehaviour {
         Vector2 finalScreenPos = new Vector2(screenPos.x, screenPos.y);
 
         // Clamp to screen
+       
+        
         if ( finalScreenPos.x >= Screen.width ) finalScreenPos.x = Screen.width;
         if ( finalScreenPos.x <= 0 ) finalScreenPos.x            = 0f;
 
@@ -74,7 +77,7 @@ public class Requester : MonoBehaviour {
             bubbleFrame.gameObject.SetActive(true);
 
             // Should we display the item icon ?
-            if ( _hasShownItem || direction.magnitude < Screen.width/10 ) {
+            if ( _hasShownItem || direction.magnitude < Screen.width/10f ) {
                 switch ( _requested ) {
                     case "Wood_Item":
                         iconDisplay.sprite = woodSprite;
@@ -94,6 +97,21 @@ public class Requester : MonoBehaviour {
         } else {
             bubbleFrame.gameObject.SetActive(false);
         }
+    }
+
+    public static Vector2 WorldToScreenPointProjected( Camera camera, Vector3 worldPos )
+    {
+        Vector3 camNormal     = camera.transform.forward;
+        Vector3 vectorFromCam = worldPos - camera.transform.position;
+        float   camNormDot    = Vector3.Dot( camNormal, vectorFromCam );
+        if ( camNormDot <= 0 )
+        {
+            // we are behind the camera forward facing plane, project the position in front of the plane
+            Vector3 proj = ( camNormal * camNormDot * 1.01f );
+            worldPos = camera.transform.position + ( vectorFromCam - proj );
+        }
+ 
+        return RectTransformUtility.WorldToScreenPoint( camera, worldPos );
     }
 
 
