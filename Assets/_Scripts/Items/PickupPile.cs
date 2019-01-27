@@ -9,7 +9,14 @@ public class PickupPile : MonoBehaviour {
     public GameObject prefab;
 
     public void UseOne() {
-        // TODO: trigger sound here
+        if ( gameObject.CompareTag("Food") ) {
+            AkSoundEngine.PostEvent("Play_FoodPickup", gameObject);
+        } else if ( gameObject.CompareTag("Snow") ) {
+            AkSoundEngine.PostEvent("Play_IcePickup", gameObject);
+        } else if ( gameObject.CompareTag("Wood") ) {
+            AkSoundEngine.PostEvent("Play_WoodPickup", gameObject);
+        }
+
         amount--;
         if ( amount == 0 )
             Destroy(gameObject);
