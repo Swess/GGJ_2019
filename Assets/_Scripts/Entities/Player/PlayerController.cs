@@ -115,8 +115,14 @@ namespace Entities.Player {
 
 
                 // RTPC // AkSoundEngine.SetRTPCValue("Intensity", rtpcValue);
-                // _pickupZone.CompareTag("Food_Item");
-                AkSoundEngine.PostEvent("Play_FoodPickup", gameObject);
+                if ( _pickupZone.CompareTag("Food") ) {
+                    AkSoundEngine.PostEvent("Play_FoodPickup", gameObject);
+                } else if ( _pickupZone.CompareTag("Snow") ) {
+                    AkSoundEngine.PostEvent("Play_SnowPickup", gameObject);
+                } else if ( _pickupZone.CompareTag("Wood") ) {
+                    AkSoundEngine.PostEvent("Play_WoodPickup", gameObject);
+                }
+
             }
         }
 
