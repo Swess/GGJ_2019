@@ -35,13 +35,10 @@ public class TimerController : MonoBehaviour
     private void OnGUI() {
         if ( !timeStarted ) return;
         GUI.skin = guiSkin;
-        int    minutes  = Mathf.FloorToInt(gameLimit / 60F);
-        int    seconds  = Mathf.FloorToInt(gameLimit - minutes * 60);
-        string niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
         int    w        = 100;
         int    h        = 40;
         Rect   rect     = new Rect( (Screen.width-w)/2f, h, w, h);
-        GUI.Label(rect, niceTime);
+		GUI.Label(rect, gameLimit.ToString("F0") + "s");
     }
     
 }

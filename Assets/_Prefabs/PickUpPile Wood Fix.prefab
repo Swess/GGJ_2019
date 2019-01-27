@@ -59,7 +59,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 3
-  prefab: {fileID: 4698982937069627745, guid: d7a20702170dbd544af009d81922f33f, type: 3}
+  prefab: {fileID: 8996599303337873958, guid: 815802e3c1206408c9ce645557397ca5, type: 3}
+--- !u!65 &1613205819
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5011500763492381429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2467551, y: 1, z: 1.6763272}
+  m_Center: {x: -0.19580638, y: 0, z: -0.003934733}
 --- !u!1001 &5011500763492283421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,10 +80,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5011500762383476535}
     m_Modifications:
-    - target: {fileID: 100072, guid: 21d48c945f1e1114e9aeee1378b596fa, type: 3}
-      propertyPath: m_Name
-      value: Wood_Log_Group
-      objectReference: {fileID: 0}
     - target: {fileID: 400072, guid: 21d48c945f1e1114e9aeee1378b596fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -115,8 +124,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100072, guid: 21d48c945f1e1114e9aeee1378b596fa, type: 3}
+      propertyPath: m_Name
+      value: Wood_Log_Group
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21d48c945f1e1114e9aeee1378b596fa, type: 3}
+--- !u!1 &5011500763492381429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100072, guid: 21d48c945f1e1114e9aeee1378b596fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 5011500763492283421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5011500763491888853 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400072, guid: 21d48c945f1e1114e9aeee1378b596fa,

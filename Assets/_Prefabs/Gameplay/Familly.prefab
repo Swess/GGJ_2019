@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212279cc215c14031b278c7aef79262c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  askingEachNSeconds: 1
-  fulfillingTime: 30
+  askingEachNSeconds: 12
+  fulfillingTime: 25
   requestingTag:
   - Food_Item
   - Wood_Item
