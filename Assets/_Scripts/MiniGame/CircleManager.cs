@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Linq;
 using Rewired;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = System.Random;
@@ -15,13 +16,15 @@ public class CircleManager : MonoBehaviour
     public GameObject spriteManager;
     public int answerLenght = 5;
     public float waitTime = 0.75f;
-    
+
+
+    public UnityEvent miniGameWinning;
+
     private GameObject[] _piePart;
     private Player _player1Input;
 
     private int[] _answer;
     private int _currentIndexChallenge =0;
-    private bool _miniGameWon = false;
 
     private SpriteRenderer _currentSymbol;
     
@@ -37,10 +40,6 @@ public class CircleManager : MonoBehaviour
     }
 
     private void Update() {
-        if ( _miniGameWon ) {
-            Debug.Log("MINI GAME WON!!!!");
-            ResetState();
-        }
         
         int realIndex = getIndex();
         
@@ -64,7 +63,6 @@ public class CircleManager : MonoBehaviour
         _answer = PickNewAnswer();
         _currentIndexChallenge = 0;
         UpdateChallengeSprite();
-        _miniGameWon = false;
     }
     
     
@@ -124,8 +122,12 @@ public class CircleManager : MonoBehaviour
     private void UpdateChallengeSprite() {
         _currentSymbol.sprite = spriteManager.GetComponent<SpriteManagerScript>().sprites[ _answer[_currentIndexChallenge] ];
     }
-    
-    private void miniGameWon() { _miniGameWon = true; }
+
+
+    private void miniGameWon() {
+        ResetState();
+        miniGameWinning.Invoke();
+    }
 
 
     private void UpdateLookAt(int realIndex) {

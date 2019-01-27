@@ -18,11 +18,8 @@ public class IglooController : MonoBehaviour {
         Instantiate(igloos[_currentStageIgloo], _visuals);
         _playerController = Core.GameController.Instance.Player1.GetComponent<PlayerController>();
         circleManager.gameObject.SetActive(false);
+        circleManager.miniGameWinning.AddListener(QuitMiniGame);
     }
-
-
-    // Update is called once per frame
-    void Update() { }
 
 
     private void OnTriggerEnter(Collider other) {
@@ -38,12 +35,13 @@ public class IglooController : MonoBehaviour {
         _inMiniGame = false;
         circleManager.gameObject.SetActive(false);
         _playerController.SetControlsActive(true);     // Reset Game Controls
+        increaseCurrentStageIgloo();
     }
 
     private void increaseCurrentStageIgloo() {
         if ( _currentStageIgloo == igloos.Length ) {
             Debug.LogError("YOU ARE TRYING TO GO OVER 9000!!!");
-            return    ;
+            return;
         }
         Destroy(_visuals.GetChild(0).gameObject);
         Instantiate(igloos[++_currentStageIgloo], _visuals);
