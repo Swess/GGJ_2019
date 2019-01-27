@@ -27,13 +27,14 @@ public class Requester : MonoBehaviour {
     private string           _requested = REQUEST_NONE;
     private bool _hasShownItem = false;
     private PlayerController _player;
-
+    private Vector3 _selfPosition;
 
     private void Start() {
         _coroutine = RequestTimer();
         StartCoroutine(_coroutine);
 
         _player = GameController.Instance.Player1.GetComponent<PlayerController>();
+        _selfPosition = transform.position;
     }
 
 

@@ -94,7 +94,7 @@ MonoBehaviour:
   translateSpeed: 0.5
   mapCenterReference: {fileID: 0}
   maxWidthClamp: 15
-  maxHeightClamp: 15
+  maxHeightClamp: 13
 --- !u!54 &6765046055923206466
 Rigidbody:
   m_ObjectHideFlags: 0
