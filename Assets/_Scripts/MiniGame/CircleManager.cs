@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 using Rewired;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -12,11 +13,13 @@ public class CircleManager : MonoBehaviour
     public int correction = 0;
     public  GameObject   prefab;
     public GameObject spriteManager;
+    public int answerLenght = 5;
+    public float waitTime = 0.75f;
     
     private GameObject[] _piePart;
     private Player _player1Input;
 
-    private int[] _answer = {1,2,3};
+    private int[] _answer;
     private int _currentIndexChallenge =0;
     private bool _miniGameWon = false;
 
@@ -33,10 +36,6 @@ public class CircleManager : MonoBehaviour
         flipIt(); //might be problematic? hell nah
     }
 
-
-    private void flipIt() { transform.rotation = Quaternion.Euler(0, 180, 7); }
-
-
     private void Update() {
         if ( _miniGameWon ) {
             Debug.Log("MINI GAME WON!!!!");
@@ -52,6 +51,14 @@ public class CircleManager : MonoBehaviour
         }
     }
 
+//
+//    public int[] getCurrentWord() {
+//        if ( _currentIndexChallenge == 0 ) return null;
+//        int[] currentWord = new int[_currentIndexChallenge-1];
+//        
+//    }
+    
+    private void flipIt() { transform.rotation = Quaternion.Euler(0, 180, 0); }
 
     private void ResetState() {
         _answer = PickNewAnswer();
@@ -63,23 +70,42 @@ public class CircleManager : MonoBehaviour
     
     private int[] PickNewAnswer() {
         Random random = new Random();
-        return new[] {random.Next(0, nTriangles-1), random.Next(0, nTriangles-1), random.Next(0, nTriangles-1)}; }
+  
+        int[] answer = new int[answerLenght];
+        for ( int i = 0; i < answer.Length; i++ ) {
+            int randomNumber = random.Next(0, nTriangles - 1);
+            if ( i == 0 ) {
+                answer[i] = randomNumber;
+                continue;
+            }
+            while(answer[i-1] == randomNumber) randomNumber = random.Next(0, nTriangles - 1);
+            answer[i] = randomNumber;
+        }
+        return answer;
+    }
 
     private void Select(int realIndex) {
         if ( _answer[_currentIndexChallenge] == realIndex) {
-            goodAnswer();
+            goodAnswer(realIndex);
         } else {
-            badAnswer();
+            badAnswer(realIndex);
         }
     }
 
 
-    private static void badAnswer() { Debug.Log("Not so great answer..."); }
+    private void badAnswer(int realIndex) {
+        Debug.Log("Not so great answer...");
+        _piePart[realIndex].transform.Find("Bad").gameObject.SetActive(true);
+        _piePart[realIndex].transform.Find("Good").gameObject.SetActive(false);
+    }
 
 
-    private void goodAnswer() {
+    private void goodAnswer(int realIndex) {
         _currentIndexChallenge++;
-        Debug.Log("Great answer!");
+        _piePart[realIndex].transform.Find("Bad").gameObject.SetActive(false);
+        _piePart[realIndex].transform.Find("Highlight").gameObject.SetActive(false);
+        _piePart[realIndex].transform.Find("Good").gameObject.SetActive(true);
+        Invoke("setEverythingGray", waitTime);
         if ( _currentIndexChallenge == _answer.Length ) {
             miniGameWon();
         } else {
@@ -87,6 +113,13 @@ public class CircleManager : MonoBehaviour
         }
     }
 
+
+    private void setEverythingGray() {
+        foreach ( GameObject go in _piePart ) {
+            go.transform.Find("Bad").gameObject.SetActive(false);
+            go.transform.Find("Good").gameObject.SetActive(false);
+        }
+    }
 
     private void UpdateChallengeSprite() {
         _currentSymbol.sprite = spriteManager.GetComponent<SpriteManagerScript>().sprites[ _answer[_currentIndexChallenge] ];
@@ -155,7 +188,7 @@ public class CircleManager : MonoBehaviour
         GameObject go = Instantiate(prefab, Vector3.zero, Quaternion.Euler(0, 0, angle), transform);
         go.transform.name = "Child at angle: " + angle;
         go.transform.Find("Symbol").GetComponent<SpriteRenderer>().sprite =
-            spriteManager.GetComponent<SpriteManagerScript>().sprites[index];
+        spriteManager.GetComponent<SpriteManagerScript>().sprites[index];
         return go;
     }
 
