@@ -185,7 +185,7 @@ public class CircleManager : MonoBehaviour
 
 
     private GameObject PieConfig(int angle, int index) {
-        GameObject go = Instantiate(prefab, Vector3.zero, Quaternion.Euler(0, 0, angle), transform);
+        GameObject go = Instantiate(prefab, transform.position, Quaternion.Euler(0, 0, angle), transform);
         go.transform.name = "Child at angle: " + angle;
         go.transform.Find("Symbol").GetComponent<SpriteRenderer>().sprite =
         spriteManager.GetComponent<SpriteManagerScript>().sprites[index];
