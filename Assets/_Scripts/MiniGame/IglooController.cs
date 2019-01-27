@@ -45,6 +45,7 @@ public class IglooController : MonoBehaviour {
         _playerController.EmptyHands();
         increaseCurrentStageIgloo();
         checkWinCondition();
+        AkSoundEngine.PostEvent("Play_UI_WordSuccess", gameObject);
         Camera.main.GetComponent<CameraController>().SetPositionOverride(Vector3.zero);
     }
 

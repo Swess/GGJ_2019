@@ -25,6 +25,7 @@ public class CircleManager : MonoBehaviour
 
     private int[] _answer;
     private int _currentIndexChallenge =0;
+    private int _previousIndex = -10;
 
     private SpriteRenderer _currentSymbol;
     
@@ -85,8 +86,10 @@ public class CircleManager : MonoBehaviour
     private void Select(int realIndex) {
         if ( _answer[_currentIndexChallenge] == realIndex) {
             goodAnswer(realIndex);
+            AkSoundEngine.PostEvent("Play_UI_ConfirmRight", gameObject);
         } else {
             badAnswer(realIndex);
+            AkSoundEngine.PostEvent("Play_UI_ConfirmWrong", gameObject);
         }
     }
 
@@ -144,6 +147,12 @@ public class CircleManager : MonoBehaviour
 
         if ( realIndex == -1 ) {
             return;
+        }
+
+        // Audio
+        if ( realIndex != _previousIndex ) {
+            AkSoundEngine.PostEvent("Play_UI_ChangeSelection", gameObject);
+            _previousIndex = realIndex;
         }
 
         _piePart[realIndex].transform.Find("Highlight").gameObject.SetActive(true);
