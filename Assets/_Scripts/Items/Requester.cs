@@ -4,6 +4,7 @@ using System.Linq;
 using Core;
 using Entities.Player;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Requester : MonoBehaviour {
 
@@ -13,11 +14,18 @@ public class Requester : MonoBehaviour {
     public int           fulfillingTime     = 40;
     public string[]      requestingTag;
     public RectTransform bubbleFrame;
+    public Image iconDisplay;
+
+    public Sprite alertSprite;
+    public Sprite woodSprite;
+    public Sprite foodSprite;
+
 
     private float       _timer = 0;
     private IEnumerator _coroutine;
 
     private string           _requested = REQUEST_NONE;
+    private bool _hasShownItem = false;
     private PlayerController _player;
 
 
@@ -58,6 +66,34 @@ public class Requester : MonoBehaviour {
 
         bubbleFrame.position = new Vector3(finalScreenPos.x, finalScreenPos.y, 0);
         bubbleFrame.rotation = Quaternion.Euler(0, 0, angle + 90);
+
+
+        // Icon display cases
+        ///// If close to family
+        if ( !_requested.Equals(REQUEST_NONE) ) {
+            bubbleFrame.gameObject.SetActive(true);
+
+            // Should we display the item icon ?
+            if ( _hasShownItem || direction.magnitude < Screen.width/10 ) {
+                switch ( _requested ) {
+                    case "Wood_Item":
+                        iconDisplay.sprite = woodSprite;
+                        break;
+                    case "Food_Item":
+                        iconDisplay.sprite = foodSprite;
+                        break;
+                    default:
+                        iconDisplay.sprite = alertSprite;
+                        break;
+                }
+
+                _hasShownItem = true;
+            } else {
+                iconDisplay.sprite = alertSprite;
+            }
+        } else {
+            bubbleFrame.gameObject.SetActive(false);
+        }
     }
 
 
@@ -72,18 +108,19 @@ public class Requester : MonoBehaviour {
 
     private void RequestItem() {
         // Ask the opposite of player's holding item
-        if ( _player.GetCurrentObjectTag().Equals("Food_Item") )
+        if ( _player.GetCurrentObjectTag().Equals("Food_Item") ) {
+            Debug.Log("Case 1");
             _requested = "Wood_Item";
-        else if ( _player.GetCurrentObjectTag().Equals("Wood_Item") ) {
+        } else if ( _player.GetCurrentObjectTag().Equals("Wood_Item") ) {
+            Debug.Log("Case 2");
             _requested = "Food_Item";
         } else {
             // Random otherwise
-            _requested = requestingTag[Random.Range(0, requestingTag.Length - 1)];
+            _requested = requestingTag[Random.Range(0, requestingTag.Length)];
         }
 
-
+        _hasShownItem = false;
         Debug.Log("Requesting : " + _requested);
-        // TODO: Add request bubble
     }
 
 
