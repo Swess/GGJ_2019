@@ -134,6 +134,4 @@ GGJ_2019_WwiseProject/
 
 Assets/Wwise/
 
-Assets/Rewired/Internal/Assets/Documentation\.zip\.meta
-
-*.meta
+Assets/Rewired/*/*/*\.zip\.meta
