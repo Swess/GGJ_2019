@@ -54,13 +54,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3830649886955417643}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: -1.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7066262927818905443}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1183024399 &4506863605727542551
 LookAtConstraint:
   m_ObjectHideFlags: 0
@@ -140,6 +140,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00c395ddd77142bc94ba50f35f0333a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  igloos:
+  - {fileID: 100010, guid: cbe663ed04ccae749a5708386ff6e0a9, type: 3}
+  - {fileID: 100006, guid: abdff16b993c8574bb8b910f01a026b2, type: 3}
+  - {fileID: 100010, guid: cbe663ed04ccae749a5708386ff6e0a9, type: 3}
+  - {fileID: 100006, guid: abdff16b993c8574bb8b910f01a026b2, type: 3}
+  - {fileID: 100010, guid: cbe663ed04ccae749a5708386ff6e0a9, type: 3}
+  - {fileID: 100006, guid: abdff16b993c8574bb8b910f01a026b2, type: 3}
+  - {fileID: 100010, guid: cbe663ed04ccae749a5708386ff6e0a9, type: 3}
+  - {fileID: 100006, guid: abdff16b993c8574bb8b910f01a026b2, type: 3}
+  - {fileID: 100010, guid: cbe663ed04ccae749a5708386ff6e0a9, type: 3}
   circleManager: {fileID: 7557630042861245062}
 --- !u!1001 &5968967848308653817
 PrefabInstance:
