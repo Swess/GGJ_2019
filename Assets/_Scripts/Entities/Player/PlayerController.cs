@@ -111,8 +111,6 @@ namespace Entities.Player {
 
                 _pickupZone.UseOne();
                 SetPickupVisuals(_pickupZone, false);
-                _pickupZone = null;
-
 
                 // RTPC // AkSoundEngine.SetRTPCValue("Intensity", rtpcValue);
                 if ( _pickupZone.CompareTag("Food") ) {
@@ -123,6 +121,7 @@ namespace Entities.Player {
                     AkSoundEngine.PostEvent("Play_WoodPickup", gameObject);
                 }
 
+                _pickupZone = null;
             }
         }
 
