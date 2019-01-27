@@ -112,6 +112,11 @@ namespace Entities.Player {
                 _pickupZone.UseOne();
                 SetPickupVisuals(_pickupZone, false);
                 _pickupZone = null;
+
+
+                // RTPC // AkSoundEngine.SetRTPCValue("Intensity", rtpcValue);
+                // _pickupZone.CompareTag("Food_Item");
+                AkSoundEngine.PostEvent("Play_FoodPickup", gameObject);
             }
         }
 
@@ -123,6 +128,8 @@ namespace Entities.Player {
                 _requesterZone.Receive(_currentItem.tag);
                 SetUsageVisuals(_requesterZone, false);
                 _requesterZone = null;
+
+                AkSoundEngine.PostEvent("Play_FoodDrop", gameObject);
             }
         }
 

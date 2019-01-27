@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7aa2c183d42fe3143b1cd8dc7ecb6cea
+guid: 4b46468f88ce8894481b0f638248b78c
 labels:
 - Input
 - Joysticks
@@ -17,6 +17,7 @@ labels:
 - Xbox360
 - XInput
 - DirectInput
+folderAsset: yes
 DefaultImporter:
   externalObjects: {}
   userData: 
