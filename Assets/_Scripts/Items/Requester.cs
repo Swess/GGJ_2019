@@ -40,7 +40,7 @@ public class Requester : MonoBehaviour {
     private void Update() {
         if ( _timer > askingEachNSeconds && _requested.Equals(REQUEST_NONE) ) RequestItem();
 
-        if ( _timer > askingEachNSeconds + fulfillingTime ) GameController.Instance.SceneController.FadeAndLoadScene("MainMenu");
+        if ( _timer > askingEachNSeconds + fulfillingTime ) GameController.Instance.Loss();
 
         MoveAlertBubble();
     }
