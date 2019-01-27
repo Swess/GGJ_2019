@@ -7,7 +7,7 @@ namespace Core {
     public class GameController : MonoBehaviour {
 
         private static GameController _instance; // Singleton instance
-
+        
         public static GameController Instance {
             get { return _instance; }
         }
@@ -20,7 +20,7 @@ namespace Core {
         private GameObject _player2;
 
         [SerializeField] private SceneController _sceneController;
-
+        [SerializeField] private TimerController _timerController;
 
         // ====================================
         // ====================================
@@ -76,6 +76,21 @@ namespace Core {
         }
 
 
+        public void Loss() {
+            resetState();
+            Debug.Log("LOSS");
+        }
+
+
+        public void Win() {
+            resetState();
+            Debug.Log("Win");
+        }
+
+
+        private void resetState() {
+            _timerController.resetTimer();
+        }
         // ========================================================
         // ========================================================
         // ========================================================
