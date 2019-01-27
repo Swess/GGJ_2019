@@ -129,9 +129,10 @@ JamNATION\+Unity_WwiseProject/
 Assets/StreamingAssets/
 
 *.zip
+*.zip.meta
 
 GGJ_2019_WwiseProject/
 
-Assets/Wwise/
+Assets/Plugins/Editor/JetBrains/
 
-Assets/Rewired/*/*/*\.zip\.meta
+Assets/Rewired/Internal/Assets/

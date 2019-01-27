@@ -1,0 +1,346 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0fdd760c7e44b53b242af6dd149076, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: b32089eb2413c440b40e562e475e9c6f
+    m_lastTime: -8586530929474775808
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 34215f82786f90408c75c2a4ddfcab82
+    m_lastTime: -8586530723204775808
+    List: []
+  BankWwu:
+  - PhysicalPath: SoundBanks/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 9993ac5d40447c4cac632e8c1f213610
+    m_lastTime: -8586530921164775808
+    List:
+    - name: Grippe2019
+      guid: c191408e87dbd448960d62d5f405b87d
+      id: 945607256
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grippe2019
+        ObjectType: 7
+      Path: Default Work Unit/Grippe2019
+  EventWwu:
+  - PhysicalPath: Events/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 09e29e4da78bd34594b44a577549aac6
+    m_lastTime: -8586530683234775808
+    List:
+    - name: Play_BarrelSystem
+      guid: 0729a5e9badd58409a26f9c0b57681e3
+      id: 1515066341
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_BarrelSystem
+        ObjectType: 3
+      Path: Default Work Unit/Play_BarrelSystem
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_ChimesSystem
+      guid: b20c3e234d357644a6fb3d42c011088e
+      id: 1334265046
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_ChimesSystem
+        ObjectType: 3
+      Path: Default Work Unit/Play_ChimesSystem
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_FoodDrop
+      guid: b79d22b8b620d04b8575ca7657c2a207
+      id: 2268686521
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Food
+        ObjectType: 4
+      - ElementName: Play_FoodDrop
+        ObjectType: 3
+      Path: Default Work Unit/Food/Play_FoodDrop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_FoodPickup
+      guid: 777ea16e9e714147bb15b40ec7777e5a
+      id: 3539015494
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Food
+        ObjectType: 4
+      - ElementName: Play_FoodPickup
+        ObjectType: 3
+      Path: Default Work Unit/Food/Play_FoodPickup
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_IcePickup
+      guid: 89136d4f26a1db4fb4f33c8366076bba
+      id: 1136618799
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ice
+        ObjectType: 4
+      - ElementName: Play_IcePickup
+        ObjectType: 3
+      Path: Default Work Unit/Ice/Play_IcePickup
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_Isaac_swees_Ageless_Samy_Burton_remix__
+      guid: f779c78d2b1aac4d9642c84ce8dc42e2
+      id: 3588382252
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Isaac_swees_Ageless_Samy_Burton_remix__
+        ObjectType: 3
+      Path: Default Work Unit/Play_Isaac_swees_Ageless_Samy_Burton_remix__
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_Player_FootstepsLoop
+      guid: d16eaec66b64dd4c9670e7ecd52cc222
+      id: 1498778935
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Player_FootstepsLoop
+        ObjectType: 3
+      Path: Default Work Unit/Play_Player_FootstepsLoop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_UI_ChangeSelection
+      guid: 28c8cdff14482943a4a9ecfcbe67c8f8
+      id: 692918887
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 4
+      - ElementName: Play_UI_ChangeSelection
+        ObjectType: 3
+      Path: Default Work Unit/UI/Play_UI_ChangeSelection
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_UI_ConfirmRight
+      guid: cc84cef8042ade41b59495326ae76d05
+      id: 3194242945
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 4
+      - ElementName: Play_UI_ConfirmRight
+        ObjectType: 3
+      Path: Default Work Unit/UI/Play_UI_ConfirmRight
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_UI_ConfirmWrong
+      guid: a19b2d8231e59f45a85eb09ee33e97c6
+      id: 522277448
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 4
+      - ElementName: Play_UI_ConfirmWrong
+        ObjectType: 3
+      Path: Default Work Unit/UI/Play_UI_ConfirmWrong
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_UI_WordSuccess
+      guid: 92a36f483613384dacfcf8817cc02a7c
+      id: 918025328
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UI
+        ObjectType: 4
+      - ElementName: Play_UI_WordSuccess
+        ObjectType: 3
+      Path: Default Work Unit/UI/Play_UI_WordSuccess
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_WindSystem
+      guid: 88a17ce92886da428a1af6254cca2b31
+      id: 3799739015
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_WindSystem
+        ObjectType: 3
+      Path: Default Work Unit/Play_WindSystem
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_WomanNeedsFood
+      guid: d5d4c70c3a0a204ea98f0b8d845e9c4f
+      id: 837134499
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Woman
+        ObjectType: 4
+      - ElementName: Play_WomanNeedsFood
+        ObjectType: 3
+      Path: Default Work Unit/Woman/Play_WomanNeedsFood
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_WomanNeedsWood
+      guid: 03f79a02e0e9e74d9898a3622dfe308f
+      id: 3580186120
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Woman
+        ObjectType: 4
+      - ElementName: Play_WomanNeedsWood
+        ObjectType: 3
+      Path: Default Work Unit/Woman/Play_WomanNeedsWood
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_WomanYoohoo
+      guid: fefd5798b8248345893a717933f3081b
+      id: 1560291643
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Woman
+        ObjectType: 4
+      - ElementName: Play_WomanYoohoo
+        ObjectType: 3
+      Path: Default Work Unit/Woman/Play_WomanYoohoo
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_WoodDrop
+      guid: a2b4415eb6a15043a847650652569144
+      id: 1432573986
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Wood
+        ObjectType: 4
+      - ElementName: Play_WoodDrop
+        ObjectType: 3
+      Path: Default Work Unit/Wood/Play_WoodDrop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_WoodPickup
+      guid: 48aead8192b38645837009fe3d9c48ab
+      id: 3130954421
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Wood
+        ObjectType: 4
+      - ElementName: Play_WoodPickup
+        ObjectType: 3
+      Path: Default Work Unit/Wood/Play_WoodPickup
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Stop_Player_FootstepsLoop
+      guid: 86ccdfdd390c0c408ce4500adb9e7925
+      id: 3883648553
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Stop_Player_FootstepsLoop
+        ObjectType: 3
+      Path: Default Work Unit/Stop_Player_FootstepsLoop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  RtpcWwu:
+  - PhysicalPath: Game Parameters/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 7026ffaa236f7b40bd5e6546e7a98372
+    m_lastTime: -8586530691654775808
+    List:
+    - name: IglooDistance
+      guid: b8d637dbf672aa408d45950ce3ad3ce5
+      id: 3769120096
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: IglooDistance
+        ObjectType: 13
+      Path: Default Work Unit/IglooDistance
+    - name: Wind_Level
+      guid: c833ff65af438d4085575054918c06ac
+      id: 1891532784
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Wind_Level
+        ObjectType: 13
+      Path: Default Work Unit/Wind_Level
+    - name: WindOnChimes
+      guid: 370dc48ec049d142b9073837047a53fc
+      id: 1025738739
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: WindOnChimes
+        ObjectType: 13
+      Path: Default Work Unit/WindOnChimes
+  StateWwu:
+  - PhysicalPath: States/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 71bcf0052757d4488e779e1c325fc0e6
+    m_lastTime: -8586530929474775808
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: ac5bae9ca3304e47a94fd156d8fe17d8
+    m_lastTime: -8586530929474775808
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 5e397c4f383d9e4d802d88343be13efc
+    m_lastTime: -8586530929474775808
+    List: []
+  ExpandedItems:
+  - /GGJ_2019_WwiseProject
+  - /GGJ_2019_WwiseProject/Events
+  - /GGJ_2019_WwiseProject/Events/Default Work Unit
+  - /GGJ_2019_WwiseProject/SoundBanks
+  - /GGJ_2019_WwiseProject/SoundBanks/Default Work Unit
+  autoPopulateEnabled: 1
+  CurrentPluginConfig: 
