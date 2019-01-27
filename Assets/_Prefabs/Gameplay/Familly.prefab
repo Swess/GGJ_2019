@@ -158,15 +158,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212279cc215c14031b278c7aef79262c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  askingEachNSeconds: 12
-  fulfillingTime: 25
+  askingEachNSeconds: 1
+  fulfillingTime: 30
   requestingTag:
   - Food_Item
   - Wood_Item
   bubbleFrame: {fileID: 8569445577574075865}
   iconDisplay: {fileID: 5102347564606601229}
-  alertSprite: {fileID: 21300000, guid: 7cbefd7606ff34c4f997ef2b272d468d, type: 3}
-  woodSprite: {fileID: 21300000, guid: 8ab3297899f1f4ffe951690e834b3b1f, type: 3}
+  alertSprite: {fileID: 21300000, guid: 0a6eaecaf8a9ef84ca205d22c3dea592, type: 3}
+  woodSprite: {fileID: 21300000, guid: a98f019cb4b6e0b4d873fac650c887dc, type: 3}
   foodSprite: {fileID: 21300000, guid: 66e00f978c1944cbc8aff2927f5678d6, type: 3}
 --- !u!1 &5618557052866939186
 GameObject:
