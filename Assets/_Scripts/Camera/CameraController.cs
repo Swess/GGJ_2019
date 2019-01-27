@@ -28,7 +28,10 @@ namespace Cameras {
         // ====================================
 
 
-        private void Awake() { GameController.Instance.SceneController.AfterSceneLoad += OnSceneLoaded; }
+        private void Awake() {
+            //
+            GameController.Instance.SceneController.AfterSceneLoad += OnSceneLoaded;
+        }
 
 
         private void Update() {
@@ -113,6 +116,11 @@ namespace Cameras {
 
 
         public void SetPositionOverride(Vector3 pos) { _positionOverride = pos; }
+
+
+        private void OnDestroy() {
+            GameController.Instance.SceneController.AfterSceneLoad -= OnSceneLoaded;
+        }
 
     }
 }
