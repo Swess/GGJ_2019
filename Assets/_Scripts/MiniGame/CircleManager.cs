@@ -92,6 +92,9 @@ public class CircleManager : MonoBehaviour
 
 
     private void badAnswer(int realIndex) {
+        if ( realIndex == -1 )
+            return;
+
         Debug.Log("Not so great answer...");
         _piePart[realIndex].transform.Find("Bad").gameObject.SetActive(true);
         _piePart[realIndex].transform.Find("Good").gameObject.SetActive(false);
@@ -99,6 +102,9 @@ public class CircleManager : MonoBehaviour
 
 
     private void goodAnswer(int realIndex) {
+        if ( realIndex == -1 )
+            return;
+
         _currentIndexChallenge++;
         _piePart[realIndex].transform.Find("Bad").gameObject.SetActive(false);
         _piePart[realIndex].transform.Find("Highlight").gameObject.SetActive(false);

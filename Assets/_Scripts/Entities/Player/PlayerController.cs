@@ -135,6 +135,11 @@ namespace Entities.Player {
         }
 
 
+        public void EmptyHands() {
+            EmptyItemHolder();
+            _currentItem = null;
+        }
+
         public Vector3 GetDirection() { return _rb.velocity.normalized; }
 
 
