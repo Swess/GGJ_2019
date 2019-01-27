@@ -235,8 +235,6 @@ GameObject:
   - component: {fileID: 556077565}
   - component: {fileID: 1565469652693399652}
   - component: {fileID: 556077566}
-  - component: {fileID: 2844877679532651493}
-  - component: {fileID: 1097840184317446018}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -309,42 +307,6 @@ MonoBehaviour:
   frictionFactor: 4
   animator: {fileID: 0}
   windModifier: {x: 0, y: 0, z: 0}
---- !u!114 &2844877679532651493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5734004574564648742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 725d6a6d6b17747fa8d98a4f6b87e814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
---- !u!114 &1097840184317446018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5734004574564648742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6833842ff901a4839b9bc6e2289e30e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDefaultListener: 1
-  listenerId: 0
 --- !u!1001 &962876053901296831
 PrefabInstance:
   m_ObjectHideFlags: 0
