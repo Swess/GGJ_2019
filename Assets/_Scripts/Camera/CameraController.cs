@@ -88,7 +88,7 @@ namespace Cameras {
 
             // Limit bounds of follow
             float xDiff = mid.x - mapCenterReference.transform.position.x;
-            float yDiff = mid.y - mapCenterReference.transform.position.y;
+            float zDiff = mid.z - mapCenterReference.transform.position.z;
 
             if ( xDiff > maxWidthClamp) {
                 mid.x = mapCenterReference.transform.position.x + maxWidthClamp;
@@ -96,10 +96,10 @@ namespace Cameras {
                 mid.x = mapCenterReference.transform.position.x - maxWidthClamp;
             }
 
-            if ( mid.y - yDiff > maxHeightClamp) {
-                mid.y = mapCenterReference.transform.position.y + maxHeightClamp;
-            } else if (yDiff < -maxHeightClamp) {
-                mid.y = mapCenterReference.transform.position.y - maxHeightClamp;
+            if ( zDiff > maxHeightClamp) {
+                mid.z = mapCenterReference.transform.position.z + maxHeightClamp;
+            } else if (zDiff < -maxHeightClamp) {
+                mid.z = mapCenterReference.transform.position.z - maxHeightClamp;
             }
 
             Vector3 targetPos = mid + offset;

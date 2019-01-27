@@ -27,13 +27,14 @@ public class Requester : MonoBehaviour {
     private string           _requested = REQUEST_NONE;
     private bool _hasShownItem = false;
     private PlayerController _player;
-
+    private Vector3 _selfPosition;
 
     private void Start() {
         _coroutine = RequestTimer();
         StartCoroutine(_coroutine);
 
         _player = GameController.Instance.Player1.GetComponent<PlayerController>();
+        _selfPosition = transform.position;
     }
 
 
@@ -49,7 +50,7 @@ public class Requester : MonoBehaviour {
     private void MoveAlertBubble() {
         if ( Camera.main == null ) return;
 
-        Vector3 screenPos       = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 screenPos       = Camera.main.WorldToScreenPoint(_selfPosition);
         Vector3 playerScreenPos = Camera.main.WorldToScreenPoint(GameController.Instance.Player1.transform.position);
 
         Vector3 direction = playerScreenPos - screenPos;
