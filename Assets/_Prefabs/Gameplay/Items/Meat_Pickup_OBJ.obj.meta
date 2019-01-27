@@ -1,28 +1,69 @@
 fileFormatVersion: 2
-guid: 5cdc3c2bf2d60a6488bcc3435cc5c4d2
+guid: 08ccd2e453be485418c815c4e5fd22aa
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cylinder__7_
-    100002: Cylinder__8_
-    100004: Cylinder__9_
-    100006: //RootNode
-    400000: Cylinder__7_
-    400002: Cylinder__8_
-    400004: Cylinder__9_
-    400006: //RootNode
-    2100000: Beast
-    2100002: Wood
-    2300000: Cylinder__7_
-    2300002: Cylinder__8_
-    2300004: Cylinder__9_
-    3300000: Cylinder__7_
-    3300002: Cylinder__8_
-    3300004: Cylinder__9_
-    4300000: Cylinder__7_
-    4300002: Cylinder__8_
-    4300004: Cylinder__9_
-  externalObjects: {}
+    100000: //RootNode
+    100002: Meat_Pickup_OBJ_0
+    100004: Meat_Pickup_OBJ_1
+    100006: Meat_Pickup_OBJ_2
+    100008: Meat_Pickup_OBJ_3
+    100010: Meat_Pickup_OBJ_4
+    400000: //RootNode
+    400002: Meat_Pickup_OBJ_0
+    400004: Meat_Pickup_OBJ_1
+    400006: Meat_Pickup_OBJ_2
+    400008: Meat_Pickup_OBJ_3
+    400010: Meat_Pickup_OBJ_4
+    2100000: Snow
+    2100002: Meat
+    2100004: Meat_Dark
+    2100006: Meat_Pickup_OBJ_0Mat
+    2100008: Meat_Pickup_OBJ_1Mat
+    2100010: Meat_Pickup_OBJ_2Mat
+    2100012: Meat_Pickup_OBJ_3Mat
+    2100014: Meat_Pickup_OBJ_4Mat
+    2300000: Meat_Pickup_OBJ_0
+    2300002: Meat_Pickup_OBJ_1
+    2300004: Meat_Pickup_OBJ_2
+    2300006: Meat_Pickup_OBJ_3
+    2300008: Meat_Pickup_OBJ_4
+    3300000: Meat_Pickup_OBJ_0
+    3300002: Meat_Pickup_OBJ_1
+    3300004: Meat_Pickup_OBJ_2
+    3300006: Meat_Pickup_OBJ_3
+    3300008: Meat_Pickup_OBJ_4
+    4300000: Meat_Pickup_OBJ_0
+    4300002: Meat_Pickup_OBJ_1
+    4300004: Meat_Pickup_OBJ_2
+    4300006: Meat_Pickup_OBJ_3
+    4300008: Meat_Pickup_OBJ_4
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Meat_Pickup_OBJ_0Mat
+    second: {fileID: 2100000, guid: abdff16b993c8574bb8b910f01a026b2, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Meat_Pickup_OBJ_1Mat
+    second: {fileID: 2100004, guid: e3f0d30a6a5dfdb48a54d28dff2c8b3f, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Meat_Pickup_OBJ_2Mat
+    second: {fileID: 2100000, guid: ab23cb69e978b704a85827b8308034b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Meat_Pickup_OBJ_3Mat
+    second: {fileID: 2100000, guid: 42283edb06bca5c47b78b6445e0e103a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Meat_Pickup_OBJ_4Mat
+    second: {fileID: 2100000, guid: be69f9945b310294b9d3fb73a4a4582b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
