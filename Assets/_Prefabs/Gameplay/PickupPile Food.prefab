@@ -26,26 +26,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickupPile Food
       objectReference: {fileID: 0}
-    - target: {fileID: 17534966, guid: 65020e50809fe49d79a6fe536a395675, type: 3}
-      propertyPath: prefab
-      value: 
-      objectReference: {fileID: 8996599303337873958, guid: d6a448d6051664e28922cb736f1ea63b,
-        type: 3}
-    - target: {fileID: 6850115273071279280, guid: 65020e50809fe49d79a6fe536a395675,
-        type: 3}
-      propertyPath: m_Radius
-      value: 2.7610729
-      objectReference: {fileID: 0}
-    - target: {fileID: 6850115273071279280, guid: 65020e50809fe49d79a6fe536a395675,
-        type: 3}
-      propertyPath: m_Center.x
-      value: -0.052322626
-      objectReference: {fileID: 0}
-    - target: {fileID: 6850115273071279280, guid: 65020e50809fe49d79a6fe536a395675,
-        type: 3}
-      propertyPath: m_Center.z
-      value: -0.26936626
-      objectReference: {fileID: 0}
     - target: {fileID: 6850115273071279281, guid: 65020e50809fe49d79a6fe536a395675,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -100,6 +80,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 17534966, guid: 65020e50809fe49d79a6fe536a395675, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 8996599303337873958, guid: d6a448d6051664e28922cb736f1ea63b,
+        type: 3}
+    - target: {fileID: 6850115273071279280, guid: 65020e50809fe49d79a6fe536a395675,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850115273071279280, guid: 65020e50809fe49d79a6fe536a395675,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.052322626
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850115273071279280, guid: 65020e50809fe49d79a6fe536a395675,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.26936626
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 17534966, guid: 65020e50809fe49d79a6fe536a395675, type: 3}

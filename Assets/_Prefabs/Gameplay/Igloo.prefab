@@ -142,15 +142,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circleManager: {fileID: 7557630042861245062}
   igloos:
+  - {fileID: 100002, guid: 9437d71ac25e0aa4ba29f83c81d60fab, type: 3}
+  - {fileID: 100002, guid: dcbccd7659d6a3947a16671644cca4b5, type: 3}
+  - {fileID: 100010, guid: cf2ceedd8c2e69249bbe4e4b4ea93a52, type: 3}
+  - {fileID: 100010, guid: d05cb4e1938d4d14d9a46db82b76152a, type: 3}
   - {fileID: 100010, guid: cbe663ed04ccae749a5708386ff6e0a9, type: 3}
+  - {fileID: 100010, guid: 629043c303d7720499e4c7629d3b2b7c, type: 3}
+  - {fileID: 100010, guid: 240dbd582436f8b43a80f31b59c7d5fa, type: 3}
+  - {fileID: 100006, guid: 7d616ec8286797a4db45c349488672f6, type: 3}
   - {fileID: 100006, guid: abdff16b993c8574bb8b910f01a026b2, type: 3}
-  - {fileID: 100010, guid: cbe663ed04ccae749a5708386ff6e0a9, type: 3}
-  - {fileID: 100006, guid: abdff16b993c8574bb8b910f01a026b2, type: 3}
-  - {fileID: 100010, guid: cbe663ed04ccae749a5708386ff6e0a9, type: 3}
-  - {fileID: 100006, guid: abdff16b993c8574bb8b910f01a026b2, type: 3}
-  - {fileID: 100010, guid: cbe663ed04ccae749a5708386ff6e0a9, type: 3}
-  - {fileID: 100006, guid: abdff16b993c8574bb8b910f01a026b2, type: 3}
-  - {fileID: 100010, guid: cbe663ed04ccae749a5708386ff6e0a9, type: 3}
   miniGameCamPosition: {fileID: 0}
 --- !u!1001 &5968967848308653817
 PrefabInstance:
@@ -222,7 +222,7 @@ PrefabInstance:
     - target: {fileID: 4193995679026385390, guid: c2f8a4dba8a50324786d0b931510b818,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.03337777
+      value: -0.033377208
       objectReference: {fileID: 0}
     - target: {fileID: 4193995679026385390, guid: c2f8a4dba8a50324786d0b931510b818,
         type: 3}
@@ -232,12 +232,12 @@ PrefabInstance:
     - target: {fileID: 4193995679026385390, guid: c2f8a4dba8a50324786d0b931510b818,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.11974335
+      value: -0.119743414
       objectReference: {fileID: 0}
     - target: {fileID: 4193995679026385390, guid: c2f8a4dba8a50324786d0b931510b818,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.016920196
+      value: 0.016920261
       objectReference: {fileID: 0}
     - target: {fileID: 4193995679026385389, guid: c2f8a4dba8a50324786d0b931510b818,
         type: 3}

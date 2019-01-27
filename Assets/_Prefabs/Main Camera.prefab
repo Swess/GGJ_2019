@@ -44,8 +44,8 @@ Camera:
   m_GameObject: {fileID: 6765046055923206465}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.05660379, g: 0.052598804, b: 0.052598804, a: 0}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -89,12 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e8b19d877784b9eba4beb20db0194d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minCameraDistance: 9
+  minCameraDistance: 15
   rotatingSpeed: 5
   translateSpeed: 0.5
-  mapCenterReference: {fileID: 0}
-  maxWidthClamp: 15
-  maxHeightClamp: 13
 --- !u!54 &6765046055923206466
 Rigidbody:
   m_ObjectHideFlags: 0
