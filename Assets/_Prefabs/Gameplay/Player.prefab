@@ -309,7 +309,7 @@ MonoBehaviour:
   frictionFactor: 4
   animator: {fileID: 0}
   windModifier: {x: 0, y: 0, z: 0}
---- !u!1001 &7404337381566351666
+--- !u!1001 &962876053901296831
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
