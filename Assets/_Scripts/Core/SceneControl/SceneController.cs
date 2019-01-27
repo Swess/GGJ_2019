@@ -141,7 +141,9 @@ namespace Core {
         /// <summary>
         /// Called on each scene Loaded Action, set the proper camera active
         /// </summary>
-        private static void SetActiveCam() { Camera.main.enabled = true; }
+        private static void SetActiveCam() {
+            if ( Camera.main != null ) Camera.main.enabled = true;
+        }
 
     }
 }

@@ -23,6 +23,7 @@ public class IglooController : MonoBehaviour {
         _playerController = Core.GameController.Instance.Player1.GetComponent<PlayerController>();
         circleManager.gameObject.SetActive(false);
         circleManager.miniGameWinning.AddListener(QuitMiniGame);
+        GameController.Instance.startTimer();
     }
 
 
