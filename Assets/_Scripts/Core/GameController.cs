@@ -79,18 +79,20 @@ namespace Core {
         public void Loss() {
             resetState();
             SceneController.FadeAndLoadScene("GameOver");
-        }
+         }
 
 
         public void Win() {
             resetState();
             SceneController.FadeAndLoadScene("Win");
-        }
-
-
+         }
+        
         private void resetState() {
             _timerController.resetTimer();
         }
+
+
+        public void startTimer() { _timerController.timeStarted = true; }
         // ========================================================
         // ========================================================
         // ========================================================
