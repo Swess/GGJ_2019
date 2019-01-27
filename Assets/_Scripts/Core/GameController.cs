@@ -78,13 +78,13 @@ namespace Core {
 
         public void Loss() {
             resetState();
-            Debug.Log("LOSS");
+            SceneController.FadeAndLoadScene("GameOver");
         }
 
 
         public void Win() {
             resetState();
-            Debug.Log("Win");
+            SceneController.FadeAndLoadScene("Win");
         }
 
 

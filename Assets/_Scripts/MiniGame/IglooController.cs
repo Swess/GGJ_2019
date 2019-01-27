@@ -26,6 +26,8 @@ public class IglooController : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if ( !other.CompareTag("Player") ) return;
 
+        if ( !_playerController.GetCurrentObjectTag().Equals("Snow_Item") ) return;
+
         _inMiniGame = true;
         circleManager.gameObject.SetActive(true);
         _playerController.SetControlsActive(false);    // Remove Player controls
