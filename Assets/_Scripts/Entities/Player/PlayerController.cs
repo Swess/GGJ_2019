@@ -16,16 +16,14 @@ namespace Entities.Player {
         public                Animator animator;
         public                Vector3  windModifier = Vector3.zero;
 
-        private Rigidbody _rb;
-
+        private Rigidbody  _rb;
+        private bool       _listensInputs = true;
         private PickupPile _pickupZone;
-        private Requester _requesterZone;
+        private Requester  _requesterZone;
         private GameObject _currentItem;
-        private Transform _itemHolder;
+        private Transform  _itemHolder;
 
         private Vector3 _previousDirection;
-
-        // public PostProcessVolume ppVolume;
 
         public Rewired.Player PlayerInputs { get; protected set; }
 
@@ -34,8 +32,8 @@ namespace Entities.Player {
 
 
         protected void Awake() {
-            _rb = GetComponent<Rigidbody>();
-            _itemHolder     = transform.Find("ItemHolder");
+            _rb         = GetComponent<Rigidbody>();
+            _itemHolder = transform.Find("ItemHolder");
 
             PlayerInputs = ReInput.players.GetPlayer(player); // Get the MainPlayer's inputs
             // PlayerInputs = GameController.Instance.actionsMapsHelper.Player1Inputs; // Get the MainPlayer's inputs
@@ -43,9 +41,11 @@ namespace Entities.Player {
 
 
         private void Update() {
-            CheckForItemPickup();
-            CheckItemUsage();
-            CheckForItemDrop();
+            if (_listensInputs) {
+                CheckForItemPickup();
+                CheckItemUsage();
+                CheckForItemDrop();
+            }
         }
 
 
@@ -60,9 +60,7 @@ namespace Entities.Player {
         // ========================================================
 
 
-        public string GetCurrentObjectTag() {
-            return !_currentItem ? "" : _currentItem.tag;
-        }
+        public string GetCurrentObjectTag() { return !_currentItem ? "" : _currentItem.tag; }
 
 
         /// <summary>
@@ -76,7 +74,14 @@ namespace Entities.Player {
 
         private void CheckForMovement() {
             // Check here
-            Vector3 forceAxis = new Vector3(PlayerInputs.GetAxisRaw("Horizontal"), 0, PlayerInputs.GetAxisRaw("Vertical"));
+            Vector3 forceAxis;
+            if(_listensInputs)
+                forceAxis = new Vector3(PlayerInputs.GetAxisRaw("Horizontal"), 0, PlayerInputs.GetAxisRaw("Vertical"));
+            else
+                forceAxis = new Vector3(0, 0, 0);
+
+
+
 
             // Apply Movement
             _rb.velocity = forceAxis.normalized * maxVelocity;
@@ -94,28 +99,25 @@ namespace Entities.Player {
             // Rotate Object
             if ( _rb.velocity.magnitude > 0.2f ) {
                 float angle = Mathf.Atan2(_rb.velocity.z, _rb.velocity.x) * Mathf.Rad2Deg * -1 + 90;
-                transform.eulerAngles = new Vector3(0,angle,0);
+                transform.eulerAngles = new Vector3(0, angle, 0);
             }
-
         }
 
 
         private void CheckForItemPickup() {
-           if ( _pickupZone && PlayerInputs.GetButtonDown(RewiredConsts.Action.Use) ) {
-
+            if ( _pickupZone && PlayerInputs.GetButtonDown(RewiredConsts.Action.Use) ) {
                 EmptyItemHolder();
                 _currentItem = Instantiate(_pickupZone.prefab, _itemHolder.position, Quaternion.identity, _itemHolder);
 
                 _pickupZone.UseOne();
                 SetPickupVisuals(_pickupZone, false);
                 _pickupZone = null;
-           }
+            }
         }
 
 
         private void CheckItemUsage() {
             if ( _requesterZone && PlayerInputs.GetButtonDown(RewiredConsts.Action.Use) ) {
-
                 EmptyItemHolder();
 
                 _requesterZone.Receive(_currentItem.tag);
@@ -126,7 +128,7 @@ namespace Entities.Player {
 
 
         private void CheckForItemDrop() {
-            if ( _currentItem && PlayerInputs.GetButtonDown(RewiredConsts.Action.Drop)) {
+            if ( _currentItem && PlayerInputs.GetButtonDown(RewiredConsts.Action.Drop) ) {
                 EmptyItemHolder();
                 _currentItem = null;
             }
@@ -170,6 +172,13 @@ namespace Entities.Player {
                 Destroy(_itemHolder.GetChild(i).gameObject);
             }
         }
+
+
+        /// <summary>
+        /// Determine if the player controller listens to inputs
+        /// </summary>
+        /// <param name="state"></param>
+        public void SetControlsActive(bool state) { _listensInputs = state; }
 
     }
 }
