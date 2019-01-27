@@ -11,6 +11,6 @@ What home means to you.
 * **J**ean-Francois Morin
 * **A**ndré Bray
 * **M**arc-Antoine Giguère
-* **K**erry Gougeon
-* **I**saac Doré
+* [**K**erry Gougeon](https://github.com/Kerry-G/)
+* [**I**saac Doré](https://github.com/Swess/)
 * **S**ophie Tetreault
