@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
 using Entities.Player;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Requester : MonoBehaviour {
 
@@ -72,7 +74,8 @@ public class Requester : MonoBehaviour {
         ///// If close to family
         if ( !_requested.Equals(REQUEST_NONE) ) {
             bubbleFrame.gameObject.SetActive(true);
-
+            
+            iconDisplay.transform.rotation = Quaternion.Euler(0f,0f,0f);
             // Should we display the item icon ?
             if ( _hasShownItem || direction.magnitude < Screen.width/7f ) {
                 switch ( _requested ) {
