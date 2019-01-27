@@ -1141,11 +1141,6 @@ PrefabInstance:
       propertyPath: mapCenterReference
       value: 
       objectReference: {fileID: 766442261}
-    - target: {fileID: 6765046055923206470, guid: 5a162ff8ff777c14d911add06acf7892,
-        type: 3}
-      propertyPath: maxHeightClamp
-      value: 13
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a162ff8ff777c14d911add06acf7892, type: 3}
 --- !u!1 &1071460361
