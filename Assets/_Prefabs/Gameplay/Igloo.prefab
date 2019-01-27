@@ -151,6 +151,7 @@ MonoBehaviour:
   - {fileID: 100010, guid: cbe663ed04ccae749a5708386ff6e0a9, type: 3}
   - {fileID: 100006, guid: abdff16b993c8574bb8b910f01a026b2, type: 3}
   - {fileID: 100010, guid: cbe663ed04ccae749a5708386ff6e0a9, type: 3}
+  miniGameCamPosition: {fileID: 0}
 --- !u!1001 &5968967848308653817
 PrefabInstance:
   m_ObjectHideFlags: 0

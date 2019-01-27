@@ -14,12 +14,13 @@ namespace Cameras {
         public float translateSpeed = 0.5f;
 
         public GameObject mapCenterReference;
-        public float maxWidthClamp = 15f;
-        public float maxHeightClamp = 15f;
+        public float      maxWidthClamp  = 15f;
+        public float      maxHeightClamp = 15f;
 
         private Rewired.Player _player1;
         private Vector3        _wantedAngle;
-        private Vector3        _camVel = Vector3.zero;
+        private Vector3        _camVel           = Vector3.zero;
+        private Vector3        _positionOverride = Vector3.zero;
 
         public Vector3 ForwardVector { get; protected set; }
 
@@ -27,9 +28,7 @@ namespace Cameras {
         // ====================================
 
 
-        private void Awake() {
-            GameController.Instance.SceneController.AfterSceneLoad += OnSceneLoaded;
-        }
+        private void Awake() { GameController.Instance.SceneController.AfterSceneLoad += OnSceneLoaded; }
 
 
         private void Update() {
@@ -56,12 +55,12 @@ namespace Cameras {
         private void CheckForRotation() {
             if ( _player1.GetButtonDown("RotateCamLeft") ) {
                 _wantedAngle.y += ROTATION_ANGLE * Mathf.Deg2Rad;
-                ForwardVector  = Quaternion.AngleAxis(ROTATION_ANGLE, Vector3.up) * ForwardVector;
+                ForwardVector  =  Quaternion.AngleAxis(ROTATION_ANGLE, Vector3.up) * ForwardVector;
             }
 
             if ( _player1.GetButtonDown("RotateCamRight") ) {
                 _wantedAngle.y -= ROTATION_ANGLE * Mathf.Deg2Rad;
-                ForwardVector  = Quaternion.AngleAxis(-ROTATION_ANGLE, Vector3.up) * ForwardVector;
+                ForwardVector  =  Quaternion.AngleAxis(-ROTATION_ANGLE, Vector3.up) * ForwardVector;
             }
 
             transform.rotation = Quaternion.Lerp(transform.rotation,
@@ -74,6 +73,12 @@ namespace Cameras {
         /// Center the camera to the characters mid point
         /// </summary>
         private void CenterToPlayers() {
+            if ( _positionOverride != Vector3.zero ) {
+                // Position Override
+                transform.position = Vector3.SmoothDamp(transform.position, _positionOverride, ref _camVel, translateSpeed);
+                return;
+            }
+
             GameObject p1 = GameController.Instance.Player1;
 
             Vector3 mid = p1.transform.position;
@@ -90,21 +95,24 @@ namespace Cameras {
             float xDiff = mid.x - mapCenterReference.transform.position.x;
             float zDiff = mid.z - mapCenterReference.transform.position.z;
 
-            if ( xDiff > maxWidthClamp) {
+            if ( xDiff > maxWidthClamp ) {
                 mid.x = mapCenterReference.transform.position.x + maxWidthClamp;
-            } else if (xDiff < -maxWidthClamp) {
+            } else if ( xDiff < -maxWidthClamp ) {
                 mid.x = mapCenterReference.transform.position.x - maxWidthClamp;
             }
 
-            if ( zDiff > maxHeightClamp) {
+            if ( zDiff > maxHeightClamp ) {
                 mid.z = mapCenterReference.transform.position.z + maxHeightClamp;
-            } else if (zDiff < -maxHeightClamp) {
+            } else if ( zDiff < -maxHeightClamp ) {
                 mid.z = mapCenterReference.transform.position.z - maxHeightClamp;
             }
 
             Vector3 targetPos = mid + offset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref _camVel, translateSpeed);
         }
+
+
+        public void SetPositionOverride(Vector3 pos) { _positionOverride = pos; }
 
     }
 }

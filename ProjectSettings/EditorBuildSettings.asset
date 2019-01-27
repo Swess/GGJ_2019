@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Main.unity
     guid: 92a9d4c0bc4d64cc3b4ec2d47ee6ad73
+  - enabled: 1
+    path: Assets/_Scenes/JF_MainLevel.unity
+    guid: ad66df3099a722c498dcea592903cce8
+  - enabled: 1
+    path: Assets/_Scenes/GameOver.unity
+    guid: bbe18094d424b0b4faf31baff74fd4ae
+  - enabled: 1
+    path: Assets/_Scenes/Win.unity
+    guid: a14d500091d0cc244a036ebf5820e86f
   m_configObjects: {}
