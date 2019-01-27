@@ -9,15 +9,36 @@ public class WindZoneTrigger : MonoBehaviour {
     private WindZone         _windZone;
     private Vector3          _dir = Vector3.zero;
     private PlayerController _playerController;
+    private bool             _inside = true;
+
+    private IEnumerator _coroutine;
 
 
     private void Start() {
         _windZone          = gameObject.GetComponent<WindZone>();
         _windZone.windMain = 0;
+
+        _coroutine = Retrigger();
+        StartCoroutine(_coroutine);
     }
 
 
     public void SetWindDirection(Vector3 dir) { _dir = dir; }
+
+
+    IEnumerator Retrigger() {
+        while ( true ) {
+            yield return new WaitForSeconds(0.2f);
+
+            if ( _playerController && _inside ) {
+                _playerController.windModifier = _dir.normalized * speed;
+                _windZone.windMain             = 1;
+
+                AkSoundEngine.SetRTPCValue("Wind_Level",   100);
+                AkSoundEngine.SetRTPCValue("WindOnChimes", 100);
+            }
+        }
+    }
 
 
     private void OnTriggerEnter(Collider other) {
@@ -28,8 +49,10 @@ public class WindZoneTrigger : MonoBehaviour {
         _playerController.windModifier = _dir.normalized * speed;
         _windZone.windMain             = 1;
 
-        AkSoundEngine.SetRTPCValue("Wind_Level", 100);
+        AkSoundEngine.SetRTPCValue("Wind_Level",   100);
         AkSoundEngine.SetRTPCValue("WindOnChimes", 100);
+
+        _inside = true;
     }
 
 
@@ -43,6 +66,8 @@ public class WindZoneTrigger : MonoBehaviour {
 
         AkSoundEngine.SetRTPCValue("Wind_Level",   20);
         AkSoundEngine.SetRTPCValue("WindOnChimes", 20);
+        
+        _inside = false;
     }
 
 
