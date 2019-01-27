@@ -81,8 +81,6 @@ namespace Entities.Player {
                 forceAxis = new Vector3(0, 0, 0);
 
 
-
-
             // Apply Movement
             _rb.velocity = forceAxis.normalized * maxVelocity;
 
@@ -111,16 +109,6 @@ namespace Entities.Player {
 
                 _pickupZone.UseOne();
                 SetPickupVisuals(_pickupZone, false);
-
-                // RTPC // AkSoundEngine.SetRTPCValue("Intensity", rtpcValue);
-                if ( _pickupZone.CompareTag("Food") ) {
-                    AkSoundEngine.PostEvent("Play_FoodPickup", gameObject);
-                } else if ( _pickupZone.CompareTag("Snow") ) {
-                    AkSoundEngine.PostEvent("Play_SnowPickup", gameObject);
-                } else if ( _pickupZone.CompareTag("Wood") ) {
-                    AkSoundEngine.PostEvent("Play_WoodPickup", gameObject);
-                }
-
                 _pickupZone = null;
             }
         }
@@ -134,7 +122,13 @@ namespace Entities.Player {
                 SetUsageVisuals(_requesterZone, false);
                 _requesterZone = null;
 
-                AkSoundEngine.PostEvent("Play_FoodDrop", gameObject);
+
+                // Play Audio
+                if ( _currentItem.tag.Equals("Food_Item") ) {
+                    AkSoundEngine.PostEvent("Play_FoodDrop", gameObject);
+                } else if ( _currentItem.tag.Equals("Wood_Item") ) {
+                    AkSoundEngine.PostEvent("Play_WoodDrop", gameObject);
+                }
             }
         }
 

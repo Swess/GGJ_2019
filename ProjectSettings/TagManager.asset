@@ -7,6 +7,9 @@ TagManager:
   - Snow_Item
   - Food_Item
   - Wood_Item
+  - Food
+  - Wood
+  - Snow
   layers:
   - Default
   - TransparentFX
