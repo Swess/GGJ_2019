@@ -27,6 +27,9 @@ public class WindZoneTrigger : MonoBehaviour {
 
         _playerController.windModifier = _dir.normalized * speed;
         _windZone.windMain             = 1;
+
+        AkSoundEngine.SetRTPCValue("Wind_Level", 100);
+        AkSoundEngine.SetRTPCValue("WindOnChimes", 100);
     }
 
 
@@ -37,9 +40,16 @@ public class WindZoneTrigger : MonoBehaviour {
 
         _playerController.windModifier = Vector3.zero;
         _windZone.windMain             = 0;
+
+        AkSoundEngine.SetRTPCValue("Wind_Level",   20);
+        AkSoundEngine.SetRTPCValue("WindOnChimes", 20);
     }
 
 
-    private void OnDestroy() { _playerController.windModifier = Vector3.zero; }
+    private void OnDestroy() {
+        _playerController.windModifier = Vector3.zero;
+        AkSoundEngine.SetRTPCValue("Wind_Level",   20);
+        AkSoundEngine.SetRTPCValue("WindOnChimes", 20);
+    }
 
 }
