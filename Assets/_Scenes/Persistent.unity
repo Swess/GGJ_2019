@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneController: {fileID: 365038633}
-  _timerController: {fileID: 0}
+  _timerController: {fileID: 1642935571}
 --- !u!1 &1175752018
 GameObject:
   m_ObjectHideFlags: 0
