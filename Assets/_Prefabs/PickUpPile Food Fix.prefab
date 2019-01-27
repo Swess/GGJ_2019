@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 3
-  prefab: {fileID: 8996599303337873958, guid: d6a448d6051664e28922cb736f1ea63b, type: 3}
+  prefab: {fileID: 278441933069126551, guid: 34c61f8efb5475444b70fb6701b893e2, type: 3}
 --- !u!1001 &5265985486603842860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +67,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5487429362849317971}
     m_Modifications:
+    - target: {fileID: 5149488013910724312, guid: fc7e446a9910fdc4aad58b5441bd9f80,
+        type: 3}
+      propertyPath: m_Name
+      value: Chevreuil
+      objectReference: {fileID: 0}
     - target: {fileID: 5357513357633093531, guid: fc7e446a9910fdc4aad58b5441bd9f80,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -121,11 +126,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5149488013910724312, guid: fc7e446a9910fdc4aad58b5441bd9f80,
-        type: 3}
-      propertyPath: m_Name
-      value: Chevreuil
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc7e446a9910fdc4aad58b5441bd9f80, type: 3}
