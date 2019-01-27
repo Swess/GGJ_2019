@@ -58,8 +58,6 @@ public class Requester : MonoBehaviour {
         Vector2 finalScreenPos = new Vector2(screenPos.x, screenPos.y);
 
         // Clamp to screen
-       
-        
         if ( finalScreenPos.x >= Screen.width ) finalScreenPos.x = Screen.width;
         if ( finalScreenPos.x <= 0 ) finalScreenPos.x            = 0f;
 
@@ -76,13 +74,17 @@ public class Requester : MonoBehaviour {
             bubbleFrame.gameObject.SetActive(true);
 
             // Should we display the item icon ?
-            if ( _hasShownItem || direction.magnitude < Screen.width/10f ) {
+            if ( _hasShownItem || direction.magnitude < Screen.width/7f ) {
                 switch ( _requested ) {
                     case "Wood_Item":
                         iconDisplay.sprite = woodSprite;
+                        if(!_hasShownItem)
+                            AkSoundEngine.PostEvent("Play_WomanNeedsWood", gameObject);
                         break;
                     case "Food_Item":
                         iconDisplay.sprite = foodSprite;
+                        if(!_hasShownItem)
+                            AkSoundEngine.PostEvent("Play_WomanNeedsFood", gameObject);
                         break;
                     default:
                         iconDisplay.sprite = alertSprite;
@@ -126,15 +128,17 @@ public class Requester : MonoBehaviour {
     private void RequestItem() {
         // Ask the opposite of player's holding item
         if ( _player.GetCurrentObjectTag().Equals("Food_Item") ) {
-            Debug.Log("Case 1");
             _requested = "Wood_Item";
+
         } else if ( _player.GetCurrentObjectTag().Equals("Wood_Item") ) {
-            Debug.Log("Case 2");
             _requested = "Food_Item";
+
         } else {
             // Random otherwise
             _requested = requestingTag[Random.Range(0, requestingTag.Length)];
         }
+
+        AkSoundEngine.PostEvent("Play_WomanYoohoo", gameObject);
 
         _hasShownItem = false;
         Debug.Log("Requesting : " + _requested);
@@ -143,8 +147,6 @@ public class Requester : MonoBehaviour {
 
     public void Receive(string receivingTag) {
         // Receives the requested object
-        // TODO: Received event logic
-
         _requested = REQUEST_NONE;
         _timer     = 0;
 

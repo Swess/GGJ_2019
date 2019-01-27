@@ -22,6 +22,7 @@ namespace Entities.Player {
         private Requester  _requesterZone;
         private GameObject _currentItem;
         private Transform  _itemHolder;
+        private bool _walking = false;
 
         private Vector3 _previousDirection;
 
@@ -80,7 +81,6 @@ namespace Entities.Player {
             else
                 forceAxis = new Vector3(0, 0, 0);
 
-
             // Apply Movement
             _rb.velocity = forceAxis.normalized * maxVelocity;
 
@@ -91,13 +91,23 @@ namespace Entities.Player {
             _rb.velocity += windModifier.normalized * windSpeed;
 
 
-            // animator.SetBool("Idle", _rb.velocity.magnitude < 0.1f );
-
-
             // Rotate Object
             if ( _rb.velocity.magnitude > 0.2f ) {
+                if ( !_walking ) {
+                    // Start Walking
+                    _walking = true;
+                    AkSoundEngine.PostEvent("Play_Player_FootstepsLoop", gameObject);
+                }
+
                 float angle = Mathf.Atan2(_rb.velocity.z, _rb.velocity.x) * Mathf.Rad2Deg * -1 + 90;
                 transform.eulerAngles = new Vector3(0, angle, 0);
+            }
+
+
+            // Stopped walking
+            if ( _walking && _rb.velocity.magnitude < 0.2f ) {
+                _walking = false;
+                AkSoundEngine.PostEvent("Stop_Player_FootstepsLoop", gameObject);
             }
         }
 
@@ -135,6 +145,13 @@ namespace Entities.Player {
 
         private void CheckForItemDrop() {
             if ( _currentItem && PlayerInputs.GetButtonDown(RewiredConsts.Action.Drop) ) {
+                // Play Audio
+                if ( _currentItem.tag.Equals("Food_Item") ) {
+                    AkSoundEngine.PostEvent("Play_FoodDrop", gameObject);
+                } else if ( _currentItem.tag.Equals("Wood_Item") ) {
+                    AkSoundEngine.PostEvent("Play_WoodDrop", gameObject);
+                }
+
                 EmptyItemHolder();
                 _currentItem = null;
             }

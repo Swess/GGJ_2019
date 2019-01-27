@@ -338,12 +338,5 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /GGJ_2019_WwiseProject
-  - /GGJ_2019_WwiseProject/Events
-  - /GGJ_2019_WwiseProject/Events/Default Work Unit
-  - /GGJ_2019_WwiseProject/Events/Default Work Unit/Food
-  - /GGJ_2019_WwiseProject/Events/Default Work Unit/Ice
-  - /GGJ_2019_WwiseProject/Events/Default Work Unit/Wood
-  - /GGJ_2019_WwiseProject/SoundBanks
-  - /GGJ_2019_WwiseProject/SoundBanks/Default Work Unit
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
