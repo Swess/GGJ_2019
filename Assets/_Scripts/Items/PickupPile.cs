@@ -13,7 +13,6 @@ public class PickupPile : MonoBehaviour {
         amount--;
         if ( amount == 0 )
             Destroy(gameObject);
-
     }
 
 
