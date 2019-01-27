@@ -411,9 +411,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1016474564}
   - component: {fileID: 1016474563}
-  - component: {fileID: 1016474565}
-  - component: {fileID: 1016474562}
   - component: {fileID: 1016474566}
+  - component: {fileID: 1016474562}
+  - component: {fileID: 1016474567}
+  - component: {fileID: 1016474565}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -421,20 +422,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1016474562
-MonoBehaviour:
+--- !u!54 &1016474562
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016474561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6833842ff901a4839b9bc6e2289e30e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDefaultListener: 1
-  listenerId: 0
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!20 &1016474563
 Camera:
   m_ObjectHideFlags: 0
@@ -500,19 +503,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1016474561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 725d6a6d6b17747fa8d98a4f6b87e814, type: 3}
+  m_Script: {fileID: 11500000, guid: 6833842ff901a4839b9bc6e2289e30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 0
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
+  isDefaultListener: 1
+  listenerId: 0
 --- !u!114 &1016474566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,6 +523,28 @@ MonoBehaviour:
   minCameraDistance: 15
   rotatingSpeed: 5
   translateSpeed: 0.5
+--- !u!114 &1016474567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016474561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725d6a6d6b17747fa8d98a4f6b87e814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1001 &1233707887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -852,6 +869,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193323614343915505, guid: 373bb60b2e7564480b480355466249b2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886597519762340670, guid: 373bb60b2e7564480b480355466249b2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886597519762340670, guid: 373bb60b2e7564480b480355466249b2,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886597519762340670, guid: 373bb60b2e7564480b480355466249b2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886597519762340670, guid: 373bb60b2e7564480b480355466249b2,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014252082454133470, guid: 373bb60b2e7564480b480355466249b2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569445577574075865, guid: 373bb60b2e7564480b480355466249b2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.4299927
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 373bb60b2e7564480b480355466249b2, type: 3}
