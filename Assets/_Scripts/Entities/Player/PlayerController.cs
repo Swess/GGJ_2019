@@ -19,6 +19,7 @@ namespace Entities.Player {
         private Rigidbody _rb;
 
         private PickupPile _pickupZone;
+        private Requester _requesterZone;
         private GameObject _currentItem;
         private Transform _itemHolder;
 
@@ -41,10 +42,9 @@ namespace Entities.Player {
         }
 
 
-
-
         private void Update() {
             CheckForItemPickup();
+            CheckItemUsage();
             CheckForItemDrop();
         }
 
@@ -107,16 +107,26 @@ namespace Entities.Player {
                 _currentItem = Instantiate(_pickupZone.prefab, _itemHolder.position, Quaternion.identity, _itemHolder);
 
                 _pickupZone.UseOne();
-                SetActionVisuals(_pickupZone, false);
+                SetPickupVisuals(_pickupZone, false);
                 _pickupZone = null;
            }
         }
 
 
+        private void CheckItemUsage() {
+            if ( _requesterZone && PlayerInputs.GetButtonDown(RewiredConsts.Action.Use) ) {
+
+                EmptyItemHolder();
+
+                _requesterZone.Receive(_currentItem.tag);
+                SetUsageVisuals(_requesterZone, false);
+                _requesterZone = null;
+            }
+        }
+
+
         private void CheckForItemDrop() {
             if ( _currentItem && PlayerInputs.GetButtonDown(RewiredConsts.Action.Drop)) {
-                // TODO : Check if in drop zone
-
                 EmptyItemHolder();
                 _currentItem = null;
             }
@@ -129,8 +139,17 @@ namespace Entities.Player {
         /// <summary>
         /// Display Character visual queue for pickup actions
         /// </summary>
-        public void SetActionVisuals(PickupPile pp, bool state) {
+        public void SetPickupVisuals(PickupPile pp, bool state) {
             _pickupZone = state ? pp : null;
+            transform.Find("Canvas").gameObject.SetActive(state);
+        }
+
+
+        /// <summary>
+        /// Display Character visual queue for Usage actions
+        /// </summary>
+        public void SetUsageVisuals(Requester requester, bool state) {
+            _requesterZone = state ? requester : null;
             transform.Find("Canvas").gameObject.SetActive(state);
         }
 
