@@ -87,6 +87,20 @@ namespace Cameras {
 
 
             // Limit bounds of follow
+            float xDiff = mid.x - mapCenterReference.transform.position.x;
+            float yDiff = mid.y - mapCenterReference.transform.position.y;
+
+            if ( xDiff > maxWidthClamp) {
+                mid.x = mapCenterReference.transform.position.x + maxWidthClamp;
+            } else if (xDiff < -maxWidthClamp) {
+                mid.x = mapCenterReference.transform.position.x - maxWidthClamp;
+            }
+
+            if ( mid.y - yDiff > maxHeightClamp) {
+                mid.y = mapCenterReference.transform.position.y + maxHeightClamp;
+            } else if (yDiff < -maxHeightClamp) {
+                mid.y = mapCenterReference.transform.position.y - maxHeightClamp;
+            }
 
             Vector3 targetPos = mid + offset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref _camVel, translateSpeed);
