@@ -13,6 +13,10 @@ namespace Cameras {
         public float rotatingSpeed  = 5f;
         public float translateSpeed = 0.5f;
 
+        public GameObject mapCenterReference;
+        public float maxWidthClamp = 15f;
+        public float maxHeightClamp = 15f;
+
         private Rewired.Player _player1;
         private Vector3        _wantedAngle;
         private Vector3        _camVel = Vector3.zero;
@@ -81,6 +85,8 @@ namespace Cameras {
                                          (float) y,
                                          (float) (Math.Cos(_wantedAngle.y + Math.PI) * xzDist));
 
+
+            // Limit bounds of follow
 
             Vector3 targetPos = mid + offset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref _camVel, translateSpeed);
