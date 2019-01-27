@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Core;
 using Entities.Player;
 using UnityEngine;
 
@@ -32,14 +33,18 @@ public class IglooController : MonoBehaviour {
         _playerController.SetControlsActive(false);    // Remove Player controls
     }
 
-
     private void QuitMiniGame() {
         _inMiniGame = false;
         circleManager.gameObject.SetActive(false);
         _playerController.SetControlsActive(true);     // Reset Game Controls
         increaseCurrentStageIgloo();
+        checkWinCondition();
     }
 
+    private void checkWinCondition() {
+        if ( _currentStageIgloo == igloos.Length ) GameController.Instance.Win();
+    }
+    
     private void increaseCurrentStageIgloo() {
         if ( _currentStageIgloo == igloos.Length ) {
             Debug.LogError("YOU ARE TRYING TO GO OVER 9000!!!");
